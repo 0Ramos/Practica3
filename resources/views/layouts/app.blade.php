@@ -31,12 +31,48 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    <!-- AGREGAR MENUS -->
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="{{route('home')}}" class="nav-link">dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-ver" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Clientes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown-ver">
+                                <a class="dropdown-item" href="{{ route('Cliente.create') }}">Crear Clientes</a>
+                                <a class="dropdown-item" href="{{ route('Cliente.index') }}">Ver Clientes</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-ver" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Quejas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown-ver">
+                                <a class="dropdown-item" href="{{ route('Quejas.create') }}">Crear Queja</a>
+                                <a class="dropdown-item" href="{{ route('Quejas.index') }}">Ver Queja</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-ver" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Factura
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown-ver">
+                                <a class="dropdown-item" href="">Crear </a>
+                                <a class="dropdown-item" href="">Mostrar</a>
+                            </div>
+                        </li>
+
+
+                    </ul>
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
+                                <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest

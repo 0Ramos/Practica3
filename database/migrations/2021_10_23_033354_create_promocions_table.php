@@ -20,7 +20,7 @@ class CreatePromocionsTable extends Migration
             $table->date("fecha_fin");
             $table->string("objetivo", 100);
             $table->foreignId("id_clientes")->constrained("clientes");
-            $table->timestamps();
+
         });
     }
 

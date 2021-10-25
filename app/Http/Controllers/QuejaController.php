@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use App\Models\Queja;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class QuejaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $cliente = new Cliente();
-        $clientes = $cliente->get();
-        return view("Cliente.Ver", ["clientes"=>$clientes]);
+        $queja = new queja();
+        $quejas = $queja->get();
+        return view("descontento.QuejaMostrar", ["quejas"=>$quejas]);
     }
 
     /**
@@ -26,7 +26,10 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view("cliente.Crear");
+      return view("descontento.QuejaCrear");
+
+
+
     }
 
     /**
@@ -37,16 +40,15 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente();
-        $cliente-> codigo = $request-> codigo;
-        $cliente-> nombres_cli = $request-> nombre_cli;
-        $cliente-> direccion_cli = $request-> direccion_cli;
-        $cliente-> email_cli= $request-> email_cli;
-        $cliente-> calificacion_cli = $request-> calificacion_cli;
-        $cliente-> id_servicios = $request-> id_servicios;
-        $cliente->save();
-        return redirect(Route("Cliente.index"));
-
+        $queja = new Queja();
+        $queja-> id = $request-> id;
+        $queja-> autogenerado_que = $request-> autogenerado_que;
+        $queja-> motivo_que = $request-> motivo_que;
+        $queja-> fecha_recepcion = $request-> fecha_recepcion;
+        $queja-> id_clientes= $request-> id_clientes;
+        $queja-> id_usuarios = $request-> id_usuarios;
+        $queja->save();
+        return redirect(Route("Queja.index"));
     }
 
     /**

@@ -20,7 +20,6 @@ class CreateQuejasTable extends Migration
             $table->date("fecha_recepcion");
             $table->foreignId("id_clientes")->constrained("clientes");
             $table->foreignId("id_usuarios")->constrained("users");
-            $table->timestamps();
         });
     }
 

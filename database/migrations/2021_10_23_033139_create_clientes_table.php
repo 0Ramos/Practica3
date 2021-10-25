@@ -21,10 +21,6 @@ class CreateClientesTable extends Migration
             $table->string("email_cli", "100");
             $table->string("calificacion_cli", "100");
             $table->foreignId("id_servicios")->constrained("servicios");
-
-
-
-            $table->timestamps();
         });
     }
 
