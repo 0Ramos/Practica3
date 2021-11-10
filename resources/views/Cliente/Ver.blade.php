@@ -31,6 +31,14 @@
                                     <td>{{$cliente->email_cli}}</td>
                                     <td>{{$cliente->calificacion_cli}}</td>
                                     <td>{{$cliente->id_servicios}}</td>
+                                    <td>
+                                        <form method='post' action='Cliente/{{$cliente->id}}'>
+                                            <input type='submit' value='Eliminar'>
+                                            @csrf
+                                            @method("DELETE")
+                                        </form>
+                                    </td>
+                                    <td><a href="Cliente/{{$cliente['id']}}/edit">Actualizar</a></td>
 
                                 </tr>
                             @endforeach
