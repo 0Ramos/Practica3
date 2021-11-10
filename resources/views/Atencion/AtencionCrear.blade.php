@@ -11,7 +11,7 @@
 
                         <form method="post" action="/Atencion">
                             @csrf
-                            <input type="text" name="descripcion_ate" placeholder="Ingrese estado"><br>
+                            <input type="text" name="descripcion_ate" placeholder="Ingrese descripcion "><br>
                             <input type="text" name="estado_ate" placeholder="Ingrese estado"><br>
                             <input type="text" name="fecha_atencion" placeholder="Ingrese fecha de atencion"><br>
                             <input type="text" name="id_derivacion" placeholder="Id derivacion"><br>
