@@ -5,24 +5,24 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">VISUALIZAR</div>
+                    <div class="card-header">Ver</div>
 
                     <div class="card-body">
+
                         <table border="1" cellspacing="0">
+
                             <tr>
                                 <th>Id</th>
-                                <th>MONTO DE FACTURACION</th>
-                                <th>FECHA DE PAGO</th>
-                                <th>ID CLIENTES</th>
+                                <th>SERVICIO</th>
+
 
                             </tr>
 
-                            @foreach ($facturacion as $facturacion)
+                            @foreach ($servicios as $servicio)
                                 <tr>
-                                    <td>{{$facturacion->id}}</td>
-                                    <td>{{$facturacion->monto_fac}}</td>
-                                    <td>{{$facturacion->fecha_pago}}</td>
-                                    <td>{{$facturacion->id_clientes}}</td>
+                                    <td>{{$servicio->id}}</td>
+                                    <td>{{$servicio->nombres_ser}}</td>
+
 
                                 </tr>
                             @endforeach
@@ -33,3 +33,4 @@
         </div>
     </div>
 @endsection
+

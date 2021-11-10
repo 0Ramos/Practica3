@@ -32,18 +32,24 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- AGREGAR MENUS -->
-
                     <ul class="navbar-nav mr-auto">
+
+                    @if(Auth::check())
+                        @if(Auth::user()->lista=="admin")
+
                         <li class="nav-item">
-                            <a href="{{route('home')}}" class="nav-link">dashboard</a>
+                            <a href="{{route('home')}}" class="nav-link">Welcome</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-ver" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Clientes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown-ver">
-                                <a class="dropdown-item" href="{{ route('Cliente.create') }}">Crear Clientes</a>
-                                <a class="dropdown-item" href="{{ route('Cliente.index') }}">Ver Clientes</a>
+                                <a class="dropdown-item" href="{{ route('Cliente.create') }}">Crear Cliente</a>
+                                <a class="dropdown-item" href="{{ route('Servicio.create') }}">Crear Servicio</a>
+                                <a class="dropdown-item" href="{{ route('Cliente.index') }}">Ver</a>
+                                <a class="dropdown-item" href="{{ route('Servicio.index') }}">Ver</a>
+
                             </div>
                         </li>
 
@@ -62,18 +68,61 @@
                                 Factura
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown-ver">
-                                <a class="dropdown-item" href="">Crear </a>
-                                <a class="dropdown-item" href="">Mostrar</a>
+                                <a class="dropdown-item" href="{{ route('Facturacion.create') }}">Crear Fac</a>
+                                <a class="dropdown-item" href="{{ route('Facturacion.index') }}">Mostrar Fac</a>
                             </div>
                         </li>
 
 
                     </ul>
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
+
+                    @elseif (Auth::user()->lista=="trab")
+                        <li class="nav-item">
+                            <a href="{{route('home')}}" class="nav-link">BIENVENIDOS</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-ver" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Atenciones
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown-ver">
+                                <a class="dropdown-item" href="{{ route('Atencion.create') }}">Crear </a>
+                                <a class="dropdown-item" href="{{ route('Derivacion.create') }}">Crear Derivacion </a>
+                                <a class="dropdown-item" href="{{ route('Atencion.index') }}">Ver</a>
+                                <a class="dropdown-item" href="{{ route('Derivacion.index') }}">Ver Derivacion</a>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-ver" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Promociones
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown-ver">
+                                <a class="dropdown-item" href="{{ route('Promocion.create') }}">Crear </a>
+                                <a class="dropdown-item" href="{{ route('Promocion.index') }}">Ver</a>
+                            </div>
+                        </li>
+
+
+                        </ul>
+                        <ul class="navbar-nav mr-auto">
+                        </ul>
+
+                @endif
+                    @endif
+
+
+
+
+
+
                                 <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

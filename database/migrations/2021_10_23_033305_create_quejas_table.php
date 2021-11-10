@@ -17,7 +17,7 @@ class CreateQuejasTable extends Migration
             $table->id();
             $table->string("autogenerado_que", 100);
             $table->string("motivo_que", 100);
-            $table->date("fecha_recepcion");
+            $table->string("fecha_recepcion");
             $table->foreignId("id_clientes")->constrained("clientes");
             $table->foreignId("id_usuarios")->constrained("users");
         });

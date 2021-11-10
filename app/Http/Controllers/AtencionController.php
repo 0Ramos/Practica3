@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Queja;
+use App\Models\Atencion;
 use Illuminate\Http\Request;
 
-class QuejaController extends Controller
+class AtencionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class QuejaController extends Controller
      */
     public function index()
     {
-        $queja = new Queja();
-        $quejas = $queja->get();
-        return view("descontento.QuejaMostrar", ["quejas"=>$quejas]);
+        $atencion = new Atencion();
+        $atencion = $atencion->get();
+        return view("Atencion.AtencionVer", ["atencion"=>$atencion]);
     }
 
     /**
@@ -26,10 +26,7 @@ class QuejaController extends Controller
      */
     public function create()
     {
-      return view("descontento.QuejaCrear");
-
-
-
+        return view("Atencion.AtencionCrear");
     }
 
     /**
@@ -40,14 +37,15 @@ class QuejaController extends Controller
      */
     public function store(Request $request)
     {
-        $queja = new Queja();
-        $queja-> autogenerado_que = $request-> autogenerado_que;
-        $queja-> motivo_que = $request-> motivo_que;
-        $queja-> fecha_recepcion = $request-> fecha_recepcion;
-        $queja-> id_clientes= $request-> id_clientes;
-        $queja-> id_usuarios = $request-> id_usuarios;
-        $queja->save();
-        return redirect(Route("Quejas.index"));
+
+        $atencion = new Atencion();
+        $atencion-> descripcion_ate = $request-> descripcion_ate;
+        $atencion-> estado_ate = $request-> estado_ate;
+        $atencion-> fecha_atencion = $request-> fecha_atencion;
+        $atencion-> id_derivacion = $request-> id_derivacion;
+        $atencion->save();
+        return redirect(Route("Atencion.index"));
+
     }
 
     /**

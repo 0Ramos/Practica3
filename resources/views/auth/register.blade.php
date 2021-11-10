@@ -61,6 +61,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="lista" class="col-md-4 col-form-label text-md-right">{{ __('Cargo') }}</label>
+
+                        <div class="col-md-6">
+                            <select id="lista" class="form-control" name="lista">
+                                <option value="cargo"></option>
+                                <option value="trab">trabajador</option>
+                                <option value="admin">Administrador</option>
+                            </select>
+                        </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Queja;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
 
-class QuejaController extends Controller
+class ServicioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class QuejaController extends Controller
      */
     public function index()
     {
-        $queja = new Queja();
-        $quejas = $queja->get();
-        return view("descontento.QuejaMostrar", ["quejas"=>$quejas]);
+        $servicio = new Servicio();
+        $servicios = $servicio->get();
+        return view("Cliente.SerVer", ["servicios" => $servicios]);
     }
 
     /**
@@ -26,10 +26,7 @@ class QuejaController extends Controller
      */
     public function create()
     {
-      return view("descontento.QuejaCrear");
-
-
-
+        return view("Cliente.SerCrear");
     }
 
     /**
@@ -40,14 +37,10 @@ class QuejaController extends Controller
      */
     public function store(Request $request)
     {
-        $queja = new Queja();
-        $queja-> autogenerado_que = $request-> autogenerado_que;
-        $queja-> motivo_que = $request-> motivo_que;
-        $queja-> fecha_recepcion = $request-> fecha_recepcion;
-        $queja-> id_clientes= $request-> id_clientes;
-        $queja-> id_usuarios = $request-> id_usuarios;
-        $queja->save();
-        return redirect(Route("Quejas.index"));
+        $servicio = new Servicio();
+        $servicio->nombres_ser = $request->nombres_ser;
+        $servicio->save();
+        return redirect(Route("Servicios.index"));
     }
 
     /**

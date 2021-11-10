@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Queja;
+use App\Models\Promocion;
 use Illuminate\Http\Request;
 
-class QuejaController extends Controller
+class PromocionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,10 @@ class QuejaController extends Controller
      */
     public function index()
     {
-        $queja = new Queja();
-        $quejas = $queja->get();
-        return view("descontento.QuejaMostrar", ["quejas"=>$quejas]);
+        $promocion = new Promocion();
+        $promocion = $promocion->get();
+        return view("Promocion.PromocionCrear", ["promocion"=>$promocion]);
+
     }
 
     /**
@@ -26,10 +27,7 @@ class QuejaController extends Controller
      */
     public function create()
     {
-      return view("descontento.QuejaCrear");
-
-
-
+        return view("Promocion.PromocionCrear");
     }
 
     /**
@@ -40,14 +38,13 @@ class QuejaController extends Controller
      */
     public function store(Request $request)
     {
-        $queja = new Queja();
-        $queja-> autogenerado_que = $request-> autogenerado_que;
-        $queja-> motivo_que = $request-> motivo_que;
-        $queja-> fecha_recepcion = $request-> fecha_recepcion;
-        $queja-> id_clientes= $request-> id_clientes;
-        $queja-> id_usuarios = $request-> id_usuarios;
-        $queja->save();
-        return redirect(Route("Quejas.index"));
+        $promocion = new Promocion();
+        $promocion-> descripcion_pro = $request-> descripcion_pro;
+        $promocion-> fecha_inicio = $request-> fecha_inicio;
+        $promocion-> fecha_fin = $request-> fecha_fin;
+        $promocion-> id_clientes = $request-> id_clientes;
+        $promocion->save();
+        return redirect(Route("Promocion.index"));
     }
 
     /**

@@ -8,12 +8,13 @@
                     <div class="card-header">CREAR</div>
 
                     <div class="card-body">
-                        <form method="post" action="/Facturacion">
+                        <form method="post" action="/Promocion">
                             @csrf
-                            <input type="text" name="id" placeholder="Id"><br>
-                            <input type="text" name="monto_fac" placeholder="Ingresar monto"><br>
-                            <input type="text" name="fecha_pago" placeholder="Ingresar fecha de pago"><br>
-                            <input type="text" name="id_clientes" placeholder="Id Cliente"><br>
+
+                            <input type="text" name="decripcion_pro" placeholder="Ingresar descripcion"><br>
+                            <input type="text" name="fecha_inicio" placeholder="Ingresar fecha "><br>
+                            <input type="text" name="fecha_fin" placeholder="Ingresar fecha de fin"><br>
+                            <input type="text" name="id_promocion" placeholder="Id Cliente"><br>
                             <input type="submit" name="submit" Value="Guardar">
                         </form>
                     </div>
